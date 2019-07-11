@@ -1,1 +1,2 @@
-knowage.retry
+*.retry
+hosts
