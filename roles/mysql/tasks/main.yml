@@ -1,0 +1,67 @@
+---
+- name: Install MySQL
+  apt:  
+    name: mysql-server
+
+- name: Change MySQL Directory
+  shell: |
+    systemctl stop mysql
+    rsync -av /var/lib/mysql /data/
+    mv /var/lib/mysql /var/lib/mysql.bak
+    mkdir /var/lib/mysql/mysql -p
+    sed  -i 's/\/var\/lib\/mysql/\/data\/mysql/'  /etc/mysql/mysql.conf.d/mysqld.cnf
+    echo "alias /var/lib/mysql/ -> /data/mysql/," >> /etc/apparmor.d/tunables/alias
+    systemctl restart apparmor
+    systemctl start mysql
+
+- name: Change MySQL root user password 
+  mysql_user: 
+    name: root 
+    host: localhost
+    password: "{{mysql_password}}"
+
+- name: Removes all anyelse user accounts
+  mysql_user:
+    login_user: root
+    login_password: "{{mysql_password}}"
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Remove hostname user accounts
+  mysql_user: login_user=root login_password={{mysql_password}} name='root' host={{ ansible_nodename }} state=absent
+
+- name: Removes test Databases
+  mysql_db:
+    login_user: root
+    login_password: "{{mysql_password}}"
+    name: test
+    state: absent
+
+- name: Removing privileges on test database
+  command: mysql -uroot -p{{mysql_password}} -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%'"
+
+- block:
+  - name: enable remote access I
+    mysql_user: 
+        login_user: root 
+        login_password: "{{mysql_password}}"
+        name: root
+        host: '%'
+        password: "{{mysql_password}}"
+        priv: '*.*:ALL'
+
+  - name: enable remote access II
+    lineinfile: 
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: 'bind-address    = 127.0.0.1'
+        line: 'bind-address    = 0.0.0.0'
+
+  - name: restart mysql
+    service: name=mysql state=restarted enabled=yes
+  when: remote
+
+- name: del mysql Automatically generated for Debian scripts.
+  file:
+    path: /etc/mysql/debian.cnf
+    state: absent

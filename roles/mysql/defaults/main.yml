@@ -1,0 +1,2 @@
+mysql_password: 123456 # mysql 默认密码
+remote: no  # 是否开启远程

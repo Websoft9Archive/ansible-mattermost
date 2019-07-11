@@ -1,0 +1,10 @@
+[Service]
+Type=forking
+ExecStart=/data/wwwroot/Knowage-Server-CE/bin/catalina.sh start
+ExecStop=/data/wwwroot/Knowage-Server-CE/bin/catalina.sh stop
+PrivateTmp=true
+User=knowage
+Group=knowage 
+
+[Install]
+WantedBy=multi-user.target
