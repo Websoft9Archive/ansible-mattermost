@@ -1,5 +1,5 @@
 ---
-- name: Knowage
+- name: Mattermost
   hosts: all
   become: yes
   become_method: sudo
@@ -11,7 +11,7 @@
      raw: 'sudo apt-get -y install python'
 
 
-- name: Knowage
+- name: Mattermost
   hosts: all
   become: yes
   become_method: sudo
@@ -21,7 +21,7 @@
   roles:
   - { role: common , tags: "common"} 
   - { role: mysql , tags: "mysql"}
-  - { role: knowage  , tags: "knowage"} 
+  - { role: mattermost  , tags: "mattermost"} 
   - { role: nginx , tags: "nginx"}
   
 

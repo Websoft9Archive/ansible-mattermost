@@ -41,27 +41,45 @@
 - name: Removing privileges on test database
   command: mysql -uroot -p{{mysql_password}} -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%'"
 
-- block:
-  - name: enable remote access I
-    mysql_user: 
-        login_user: root 
-        login_password: "{{mysql_password}}"
-        name: root
-        host: '%'
-        password: "{{mysql_password}}"
-        priv: '*.*:ALL'
-
-  - name: enable remote access II
-    lineinfile: 
-        path: /etc/mysql/mysql.conf.d/mysqld.cnf
-        regexp: 'bind-address    = 127.0.0.1'
-        line: 'bind-address    = 0.0.0.0'
-
-  - name: restart mysql
-    service: name=mysql state=restarted enabled=yes
-  when: remote
-
 - name: del mysql Automatically generated for Debian scripts.
   file:
     path: /etc/mysql/debian.cnf
     state: absent
+
+
+- name: Setting rc.local
+  file:
+    path: /etc/rc.local
+    state: touch
+    mode: 0750
+
+- name: Write rc.local
+  shell: echo "#!/bin/bash" > /etc/rc.local
+
+- name: restart rc.local
+  service: name=rc.local state=restarted enabled=yes
+
+- name: Create credentials Folder
+  file:
+    path: /credentials
+    state: directory
+
+- name: Write Databases Password
+  template:
+    src: password.txt.jinja2
+    dest: /credentials/password.txt
+    mode: 644
+
+
+- name: Databases Random Password
+  template: 
+    src: init.sh.jinja2
+    dest: /root/init.sh
+    mode: 0750
+
+- name: Setting Startup
+  lineinfile:
+    path: /etc/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0750

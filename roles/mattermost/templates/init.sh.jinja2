@@ -1,0 +1,23 @@
+#!/bin/bash
+
+old_password=$(cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}')
+new_password=$(pwgen -Aycns -r "@&-_|%'\"\\\/\`;=+<>,.(){}[]:$~^*" 8 1)
+
+mattermost_password=$(pwgen -Aycns -r "@&-_|%'\"\\\/\`;=+<>,.(){}[]:$~^*" 8 1)
+
+systemctl restart mysql
+
+mysqladmin -uroot -p${old_password} -h localhost password $new_password
+
+mysqladmin -u{{mattermost_db_user}} -p{{mattermost_db_password}} -h localhost password $mattermost_password
+
+sed -i "s/$old_password/$new_password/" /credentials/password.txt
+
+sed -i "s/{{mattermost_db_password}}/$mattermost_password/" /credentials/password.txt
+
+sed -i "s/{{mattermost_db_password}}/$mattermost_password/" /opt/mattermost/config/config.json
+
+sed -i 's/\/root\/init.sh//g' /etc/rc.local
+
+rm -rf /root/init.sh
+

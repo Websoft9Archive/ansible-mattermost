@@ -2,7 +2,7 @@
 
 - name: install Nginx
   apt:
-    name: nginx
+    name: [nginx,certbot,python-certbot-nginx]
 
 - name: set reverse porxy
   copy: 
