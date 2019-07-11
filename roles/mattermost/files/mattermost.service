@@ -1,10 +1,19 @@
+[Unit]
+Description=Mattermost
+After=network.target
+After=mysql.service
+Requires=mysql.service
+
 [Service]
-Type=forking
-ExecStart=/data/wwwroot/Knowage-Server-CE/bin/catalina.sh start
-ExecStop=/data/wwwroot/Knowage-Server-CE/bin/catalina.sh stop
-PrivateTmp=true
-User=knowage
-Group=knowage 
+Type=notify
+ExecStart=/opt/mattermost/bin/mattermost
+TimeoutStartSec=3600
+Restart=always
+RestartSec=10
+WorkingDirectory=/opt/mattermost
+User=mattermost
+Group=mattermost
+LimitNOFILE=49152
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=mysql.service
