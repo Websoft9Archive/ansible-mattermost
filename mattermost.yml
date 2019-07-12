@@ -45,7 +45,7 @@
   hosts: mattermost
   become: yes
   become_method: sudo
-  remote_user: '{{remote_user}}'
+  # remote_user: '{{remote_user}}'
 
   roles:
     - { role: common, tags: "common"}   # 预安装
