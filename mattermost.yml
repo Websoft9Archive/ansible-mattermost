@@ -46,10 +46,10 @@
   become_method: sudo
 
   roles:
-    - { role: common, tags: "common"}   # 预安装
-    - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
-    - { role: nginx, tags: "nginx"}     # 结束配置
-    - { role: mattermost, tags: "mattermost"}
+    # - { role: common, tags: "common"}   # 预安装
+    # - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
+    # - { role: nginx, tags: "nginx"}     # 结束配置
+    # - { role: mattermost, tags: "mattermost"}
     - { role: docker, tags: "docker"}
     - { role: docker_phpmyadmin, tags: "docker_phpmyadmin"}
 
