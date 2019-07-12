@@ -49,9 +49,9 @@
 
   roles:
     - { role: common, tags: "common"}   # 预安装
-    - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
+    # - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
     - { role: nginx, tags: "nginx"}     # 结束配置
-    - { role: mattermost, tags: "mattermost"} 
+    # - { role: mattermost, tags: "mattermost"} 
 
 
 
