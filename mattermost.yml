@@ -32,7 +32,6 @@
   hosts: mattermost
   become: yes
   become_method: sudo
-  # remote_user: '{{remote_user}}'
   gather_facts: False
   pre_tasks:
    - name: Install Python
@@ -45,13 +44,12 @@
   hosts: mattermost
   become: yes
   become_method: sudo
-  # remote_user: '{{remote_user}}'
 
   roles:
     - { role: common, tags: "common"}   # 预安装
-    # - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
+    - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
     - { role: nginx, tags: "nginx"}     # 结束配置
-    # - { role: mattermost, tags: "mattermost"} 
+    - { role: mattermost, tags: "mattermost"} 
 
 
 
