@@ -32,7 +32,7 @@
   hosts: mattermost
   become: yes
   become_method: sudo
-  remote_user: '{{remote_user}}'
+  # remote_user: '{{remote_user}}'
   gather_facts: False
   pre_tasks:
    - name: Install Python
