@@ -56,11 +56,25 @@
     state: started
     enabled: yes
 
+- name: set reverse porxy
+  copy: 
+    src: default
+    dest: /etc/nginx/sites-available
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
+
 - name: Write Databases Password
   template:
     src: password.txt.jinja2
     dest: /credentials/password.txt
     mode: 644
+
+- name: Write rc.local
+  shell: echo "#!/bin/bash" > /etc/rc.local
+
+- name: restart rc.local
+  service: name=rc.local state=restarted enabled=yes
 
 
 - name: Databases Random Password

@@ -1,28 +1,62 @@
----
-- name: Mattermost
-  hosts: all
-  become: yes
-  become_method: sudo
-  become_user: root
-  remote_user: '{{admin_username}}'
+# 本地同步公共Roles
+- name: mattermost
+  hosts: local
+  connection: local
   gather_facts: False
   pre_tasks:
-   - name: 'install python'
-     raw: 'sudo apt-get -y install python'
+    - name: Set Git Repo
+      shell: |
+        git init
+        git config core.sparsecheckout true
+        git remote add origin https://github.com/Websoft9/ansible-roles.git
+        echo {{ item }} >> .git/info/sparse-checkout
+      args:
+        chdir: roles
+      with_items:
+        - "{{ public_roles }}"
 
+    - name: GET Public Roles
+      git:
+        repo: https://github.com/Websoft9/ansible-roles.git
+        dest: roles
+        clone: no
 
-- name: Mattermost
-  hosts: all
+    - name: Delete .git
+      file:
+        path: roles/.git
+        state: absent
+        
+
+# # 服务器前置任务(ubuntu使用)
+- name: mattermost
+  hosts: server
   become: yes
   become_method: sudo
-  become_user: root
-  remote_user: '{{admin_username}}'
-  
+  remote_user: '{{remote_user}}'
+  gather_facts: False
+  pre_tasks:
+   - name: Install Python
+     raw: sudo apt-get -y install python
+
+
+# # 核心任务
+
+- name: mattermost
+  hosts: server
+  become: yes
+  become_method: sudo
+  remote_user: '{{remote_user}}'
+
   roles:
-  - { role: common , tags: "common"} 
-  - { role: mysql , tags: "mysql"}
-  - { role: mattermost  , tags: "mattermost"} 
-  - { role: nginx , tags: "nginx"}
-  
+    - { role: common, tags: "common"}   # 预安装
+    - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
+    - { role: nginx, tags: "nginx"}     # 结束配置
+    - { role: mattermost, tags: "mattermost"} 
+
+
+
 
     
+
+
+                                                                                                    

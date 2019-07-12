@@ -4,10 +4,3 @@
   apt:
     name: [nginx,certbot,python-certbot-nginx]
 
-- name: set reverse porxy
-  copy: 
-    src: default
-    dest: /etc/nginx/sites-available
-
-- name: restart nginx
-  service: name=nginx state=restarted enabled=yes
