@@ -29,7 +29,7 @@
 
 # # 服务器前置任务(ubuntu使用)
 - name: mattermost
-  hosts: server
+  hosts: mattermost
   become: yes
   become_method: sudo
   remote_user: '{{remote_user}}'
@@ -42,7 +42,7 @@
 # # 核心任务
 
 - name: mattermost
-  hosts: server
+  hosts: mattermost
   become: yes
   become_method: sudo
   remote_user: '{{remote_user}}'
