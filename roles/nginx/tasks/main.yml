@@ -1,6 +1,0 @@
----
-
-- name: install Nginx
-  apt:
-    name: [nginx,certbot,python-certbot-nginx]
-
