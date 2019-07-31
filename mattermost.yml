@@ -46,13 +46,12 @@
   become_method: sudo
 
   roles:
-    - { role: common, tags: "common"}  
-    - {role: ubuntu-mysql, tags: "ubuntu-mysql"}
-    - { role: nginx, tags: "nginx"}     
-    - { role: mattermost, tags: "mattermost"}
-    - { role: docker, tags: "docker"}
-    - { role: docker_phpmyadmin, tags: "docker_phpmyadmin"}
-
+    - {role: common,tags: "common"}
+    - {role: ubuntu-mysql,tags: "ubuntu-mysql"}
+    - {role: nginx,tags: "nginx"}     
+    - {role: mattermost,tags: "mattermost"}
+    - {role: docker,tags: "docker"}
+    - {role: docker_phpmyadmin,tags: "docker_phpmyadmin"}
 
 
 
