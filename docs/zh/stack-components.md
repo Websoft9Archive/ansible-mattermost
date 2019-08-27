@@ -1,31 +1,34 @@
 # 参数
 
-## 组件及路径
+Mattermost 部署包预制支持 Mattermost 运行所需一序列支持软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
-Mattermost部署包中不仅仅只有Mattermost本身，还包含一序列支持Mattermost运行所需的其他软件（这里称之为组件），下面列出主要组件名称、安装路径、配置文件地址等重要的信息：
+## 路径
 
 ### Mattermost
 
-Mattermost
+Mattermost 安装目录： */opt/mattermost/*  
+Mattermost 配置文件： */opt/mattermost/config/config.json*
 
-Mattermost安装目录: /opt/mattermost/
-Mattermost配置文件: /opt/mattermost/config/config.json
-
-> Metabase配置文件中包含数据库连接信息，更改了MySQL数据库账号密码，此处也需要对应修改
+> Metabase 配置文件中包含数据库连接信息，更改了 MySQL 数据库账号密码，此处也需要对应修改
 
 ### Go
 
+Mattermost 使用 Go 语言开发，镜像默认支持 Go 程序部署
 
 ### Nginx
-Nginx vhost configuration file: /etc/nginx/sites-available/default
-Nginx configuaration file: /etc/nginx/nginx.conf
-Nginx logs file: /var/log/nginx/
+
+Nginx 虚拟主机配置文件：*/etc/nginx/sites-available/default*  
+Nginx 主配置文件： */etc/nginx/nginx.conf*  
+Nginx 日志文件： */var/log/nginx/*
 
 ### MYSQL
-Database install directory: /usr/local/mysql  
-Database data directory: /data/mysql  
-Database Configuration File: /etc/my.cnf  
-MySQL Management URL: _http://Internet IP:9090
+
+MySQL 安装路径: */usr/local/mysql* 
+MySQL 数据文件 */data/mysql*  
+MySQL 配置文件: */etc/my.cnf*  
+MySQL 可视化管理地址: *http://服务器公网IP:9090*
+
+MySQL 用户名和密码请参考 [账号密码](/zh/stack-accounts.md) 章节。
 
 
 ## 端口号

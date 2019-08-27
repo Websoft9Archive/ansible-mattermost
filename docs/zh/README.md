@@ -19,9 +19,9 @@ home: false
 
 ## 赞助
 
-Websoft9是一个为开源而生的平台，一直在致力于简化全球优质开源软件的安装部署。如果您能够给与我们一些赞助，我们会发展得更好一些  
+Websoft9是一个为开源而生的平台，一直在致力于简化全球优质开源软件的安装部署，并提供简单实用的管理员指南。如果您能够给与我们一些赞助，我想一切将变得更加美好。  
 
-[我要捐赠](http://www.websoft9.com/aboutus/donate)
+[我要捐赠](https://www.websoft9.com/aboutus/donate)
 
 ## 合作
 
