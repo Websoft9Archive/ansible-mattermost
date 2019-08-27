@@ -1,34 +1,24 @@
 # 故障处理
 
-<a name="f10a43fd"></a>
-#### MySQL Service Not Start
-The most common reasons why MySQL can't start include: insufficient disk space, insufficient memory, configuration file errors...
+我们收集使用Mattermost过程中最常见的故障，供您参考：
 
+## 数据库相关
+
+#### 数据库服务无法启动
+
+数据库服务无法启动最常见的问题包括：磁盘空间不足，内存不足，配置文件错误。  
+建议先通过命令进行排查
 ```shell
-# view the disk space
+# 查看磁盘空间
 df -lh
 
-# view the memory used
+# 查看内存使用
 free -lh
 ```
+## 服务器相关
 
+服务器相关故障的诊断和解决，与云平台密切相关，请参考[云平台文档](https://support.websoft9.com/docs/faq/tech-instance.html)
 
-<a name="ea1a371d"></a>
-#### PhpMyAdmin Timeout Errors
-If you try to import a zipped database, you might see a timeout error because phpMyAdmin takes too long to execute the script.To fix this:
+## 网络相关
 
-- Set the max_execution_time of `php.ini` to larger value
-- Try to import the file again.
-
-Remember to change the ExecTimeLimit setting back to its original value once the import process ends.
-
-<a name="657a59cd"></a>
-#### Website pictures loading very slowly?
-Please make sure that your brandwith of Server is more than 5M
-
-<a name="8504d445"></a>
-#### Apache httpd service restart error
-Please make sure the vhost.conf is correct for you, and you can track and analyze log files from _/var/log/httpd_<br />_
-<a name="e34e1049"></a>
-#### Redirects Error
-Check your `.htaccess` file in your application root directory, make sure there not any cycle redirects settings
+## 其他

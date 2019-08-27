@@ -8,7 +8,7 @@ module.exports = [
       '/zh/stack-installation',
       '/zh/stack-components',
       '/zh/stack-accounts',
-      ['https://support.websoft9.com/docs/faq/tech-instance.html','云服务器'],
+      ['https://support.websoft9.com/docs/faq/zh/tech-instance.html','云服务器'],
     ]
   },
   
@@ -20,7 +20,6 @@ module.exports = [
       '/zh/solution-https',
       '/zh/solution-backup',
       '/zh/solution-upgrade',
-      '/zh/solution-migration',
       '/zh/solution-more',
     ]
   },

@@ -1,56 +1,56 @@
 # 备份恢复
 
-Routine backup (archives) of the database and application setup is essential to ensure failover is smooth.
+## 为什么？
 
-Backup is based on the server snapshot automatic backup,manual local backup,using plugin to backup in three ways, three of which have their own advantages and disadvantages, it is recommended to use together
+有服务器运维经验的用户都明白一个道理：“信息系统根本无法长时间保持100%稳定的状态，任何系统都可能会出现故障，只是故障出现的概率不同、危害程度不同而已”。
 
-> Automatic Backup is very useful and efficient for your system maintenance.
+1. 工作了几天的成果，被误删了 
+2. 网站被黑客攻击，面目全非
+3. 现在的内容已乱七八糟，想要恢复到一个历史状态 
 
+当故障发生之时，我们首先是寻求专业人士的帮助，快速诊断并处理故障，但不幸的是，有些故障无法在期望的时间周期内顺利的解决，甚至是无法解决。
 
-<a name="abcd88fb"></a>
-## Snapshot of Cloud Server Backup
+显然，有一个备份及其重要，它可以保证出现故障之时可以通过已有的备份文件将系统恢复到正常的状态，意味着可以避免由于无法恢复而造成的巨大损失。
 
-Cloud Server provider have the Snapshot or Cloud Server Backup Service, the snapshot is for the Server disk. Snapshot tool can record the specified point in time the hard disk data, all backed up, and can achieve a key recovery.
+> 一定要养成备份的习惯，切莫存在侥幸心理
 
-> Different Cloud vendor snapshot settings slightly different
+## 怎样做？
 
+从具体的备份对象上看，我们的服务器上存在：**操作系统、运行环境、数据库和应用程序**四个备份对象，每个对象都有可能出现不可预期、不可如期解决的故障。基于备份对象的性质，我们认为如下两种备份措施是必要的：
 
-- Backup scope: Operation System,Runing environment,Database,OwnCloud Codes
-- Backup effect: Very Good
-- Backup frequency: Automatic backup per hour if you need
-- Recommended reason : Done a snapshot backup, a key to restore to the backup point of time state. That is, on-site reduction, very good function.
+### 全局自动备份
 
-<a name="be80573e"></a>
-## Manual Backup
+所有的云平台都提供了全局自动备份功能，基本原理是基于**磁盘快照**：快照是针对于服务器的磁盘来说的，它可以记录磁盘在指定时间点的数据，将其全部备份起来，并可以实现一键恢复。
 
-Some times you can use the manual Backup for OwnCloud if you need.<br />Just download the entire OwnCloud files by SFTP and export database by phpMyAdmin,you have completed the backup
+```
+- 备份范围: 将操作系统、运行环境、数据库和应用程序
+- 备份效果: 非常好
+- 备份频率: 按小时、天、周备份均可
+- 恢复方式: 云平台一键恢复
+- 技能要求：非常容易
+- 自动化：设置策略后全自动备份
+```
 
-- Backup scope: Database,OwnCloud Codes
-- Backup effect: Good
+不同云平台的自动备份方案有一定的差异，详情参考 [云平台备份方案](https://support.websoft9.com/docs/faq/zh/tech-instance.html)
 
-- Backup frequency: You can operate when you need
-- Recommended reason : Manual looks more insurance
+### 程序手工备份
 
+程序手工本地备份是通过**下载应用程序源码和导出数据库文件**实现最小化的备份方案。
 
-<a name="VeWAO"></a>
-## Using Backup Interface of OwnCloud
+下面以列表的方式介绍这种备份：
+```
+- 备份范围: 数据库和应用程序
+- 备份效果: 一般
+- 备份频率: 一周最低1次，备份保留30天
+- 恢复方式: 重新导入
+- 技能要求：非常容易
+- 自动化：无
+```
+通用的手动备份操作步骤如下：
 
-When you backup your OwnCloud server, there are four things that you need to copy:
-
-1. Your `config/` directory.
-1. Your `data/` directory.
-1. Your ownCloud database.
-1. Your custom theme files, if you have any.
-
-<a name="e312245f"></a>
-### Automatic Backup & Restore
-If you have installed the "OwnBackup" app ( [install it first](http://en.websoft9.com/xdocs/owncloud-image-guide/#using-apps)) you can backup use interface
-
-1. Admin->Admin->OwnBackup
-
-[![](https://cdn.nlark.com/yuque/0/2019/png/152462/1552220698513-66f6d65b-f46e-4b12-88c7-76ac0fcbbe3e.png#align=left&display=inline&height=323&originHeight=717&originWidth=1600&size=0&status=done&width=720)](http://libs.websoft9.com/Websoft9/DocsPicture/en/owncloud/owncloud-ownbackup-websoft9.png)<br />
-1. Click the “Create Backup”-Yes,backup successful
-1. If you want to Restore owncloud,Select the backup you want to restore tables from and Select the tables you want to restore,then click the button “Restore Tables”
-
-[![](https://cdn.nlark.com/yuque/0/2019/png/152462/1552220698521-8d0aa3cb-9a83-4081-822b-c2c11d566693.png#align=left&display=inline&height=594&originHeight=768&originWidth=931&size=0&status=done&width=720)](http://libs.websoft9.com/Websoft9/DocsPicture/en/owncloud/owncloud-restore-websoft9.png)
+1. 通过WinSCP将网站目录完整的下载到本地（如果文件数量比较多，建议压缩后再下载） 
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/winscp/winscp-download-websoft9.png)
+2. 通过phpMyAdmin导出数据库
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/
+3. 将程序文件和数据库文件放到同一个文件夹，根据日期命名，备份工作完成
 

@@ -1,6 +1,6 @@
 # MySQL
 
-Mattermost 部署包中内置了 MySQL 以及可视化数据库管理工具 `phpMyadmin` ，参考如下步骤管理数据库：
+Mattermost 部署包中内置 MySQL 及可视化数据库管理工具 `phpMyadmin` ，使用请参考如下步骤：
 
 1. 登录云控制台，开启服务器安全组9090端口
 2. 本地浏览器 Chrome 或 Firefox 访问：*http://服务器公网IP:9090*，进入phpMyAdmin
