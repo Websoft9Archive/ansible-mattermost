@@ -1,24 +1,22 @@
 # 更多...
 
-## 绑定域名
+下面每一个方案，都经过实践证明行之有效，希望能够对你有帮助
 
-If you want to use Domain for OwnCloud, these steps is for you
+## 域名绑定
 
-1. Modify the vhost configuration file
-1. Modify the config.php file of OwnCloud. E.g. set the overwritehost to your domain name
-```shell
-<?php
-$CONFIG = array (
-  'instanceid' => '***************',
-  'passwordsalt' => '**********************************',
-  'datadirectory' => '/cloudData',
-  'dbtype' => 'mysql',
-  'version' => '7.0.1.1',
-  'dbname' => 'ownCloud',
-  'dbhost' => '127.0.0.1',
-  'overwritehost' => 'cloud.our-company.net',
+绑定域名的前置条件是：Mattermost已经可以通过解析后的域名访问。  
+
+虽然如此，从服务器安全和后续维护考量，**域名绑定**步骤不可省却  
+
+域名绑定操作步骤：
+
+1. 登录云服务器
+2. 修改Nginx虚拟机主机配置文件，将其中的域名项的值 *www.exmaple.com* 修改为你的域名
+```text
+暂无
 ```
-
-> When you share the file from OwnCloud, the domain name part of URL link is overwritehost
+3. 重启Nginx服务
 
 ## 迁移
+
+暂无
