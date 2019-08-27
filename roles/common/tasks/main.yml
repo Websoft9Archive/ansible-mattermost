@@ -6,12 +6,14 @@
     yum: name=* state=latest
 
   - name: Install EPEL
-    template:
-      src: '{{item.src}}'
-      dest: '{{item.dest}}'
-    with_items:
-      - {src: epel.repo.jinja2,dest: /etc/yum.repos.d/epel.repo}
-      - {src: 'RPM-GPG-KEY-EPEL-{{ansible_distribution_version}}',dest: /etc/pki/rpm-gpg/}
+    yum:
+      name: epel-release
+    # template:
+    #   src: '{{item.src}}'
+    #   dest: '{{item.dest}}'
+    # with_items:
+    #   - {src: epel.repo.jinja2,dest: /etc/yum.repos.d/epel.repo}
+    #   - {src: 'RPM-GPG-KEY-EPEL-{{ansible_distribution_version}}',dest: /etc/pki/rpm-gpg/}
 
 
   - name: Disable SELinux
@@ -102,3 +104,29 @@
   sysctl:
     name: fs.inotify.max_user_watches
     value: "262144"
+
+- block:
+  - name: AWS Configure
+    apt:
+      name: ec2-instance-connect
+      update_cache: yes
+
+  - name: Start ec2-instance-connect
+    service:
+      name: ec2-instance-connect
+      state: started
+      enabled: yes
+  when: cloud == 'aws' and ansible_distribution == 'Ubuntu'
+
+- block:
+  - name: AWS Configure
+    yum:
+      name: ec2-instance-connect
+  
+  - name: Start ec2-instance-connect
+    service:
+      name: ec2-instance-connect
+      state: started
+      enabled: yes
+
+  when: cloud == 'aws' and ansible_distribution == 'Centos'

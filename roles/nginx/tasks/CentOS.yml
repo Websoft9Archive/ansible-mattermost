@@ -1,6 +1,7 @@
 - name: Import Nginx Official stable Repo
   yum_repository:
     name: nginx stable repo
+    description: nginx stable repo
     file: nginx-stable
     baseurl: http://nginx.org/packages/centos/$releasever/$basearch/
     gpgcheck: yes
@@ -10,6 +11,7 @@
 - name: Import Nginx Official mainline Repo
   yum_repository:
     name: nginx mainline repo
+    description: nginx mainline repo
     file: nginx-mainline
     baseurl: http://nginx.org/packages/mainline/centos/$releasever/$basearch/
     gpgcheck: yes
