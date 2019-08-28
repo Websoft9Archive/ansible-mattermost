@@ -14,4 +14,4 @@
 
 ## 使用指南
 
-[中文](https://support.websoft9/docs/mattermost/zh) | [英文](https://support.websoft9/docs/mattermost)
+[中文](https://support.websoft9.com/docs/mattermost/zh) | [英文](https://support.websoft9.com/docs/mattermost)
