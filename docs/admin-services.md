@@ -29,3 +29,12 @@ sudo systemctl restart mysql
 sudo systemctl status mysql
 ```
 
+### Docker
+```shell
+sudo systemctl star docker
+sudo systemctl stop docker
+sudo systemctl restart docker
+sudo systemctl status docker
+```
+
+
