@@ -25,7 +25,7 @@
 
 - name: Download Mattermost
   unarchive:
-      src: https://releases.mattermost.com/{{mattermost_ver}}/mattermost-{{mattermost_ver}}-linux-amd64.tar.gz 
+      src: https://releases.mattermost.com/{{mattermost_ver}}/mattermost-team-{{mattermost_ver}}-linux-amd64.tar.gz
       dest: /opt/ 
       group: mattermost 
       remote_src: yes

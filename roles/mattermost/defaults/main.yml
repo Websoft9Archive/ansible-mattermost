@@ -1,4 +1,4 @@
-mattermost_ver: 5.12.3
+mattermost_ver: 5.14.0
 mattermost_db_name: mattermost
 mattermost_db_user: mmuser
 mattermost_db_password: websoft9
