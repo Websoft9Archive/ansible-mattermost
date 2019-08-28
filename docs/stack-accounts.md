@@ -1,4 +1,4 @@
-# 账号密码
+# Username and Password
 
 使用Mattermost，可能会用到的几组账号密码如下：
 

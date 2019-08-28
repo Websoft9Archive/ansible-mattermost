@@ -1,4 +1,4 @@
-# 参数
+# List Included Components
 
 Mattermost 预装包包含 Mattermost 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
