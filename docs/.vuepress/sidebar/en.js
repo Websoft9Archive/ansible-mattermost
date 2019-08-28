@@ -11,5 +11,36 @@ module.exports = [
           ['https://support.websoft9.com/docs/faq/tech-instance.html','Cloud Server'],
         ]
       },
-  
+      {
+        title: 'Best Practices',
+        collapsable: false,
+        children: [
+          '/solution-smtp',
+          '/solution-https',
+          '/solution-backup',
+          '/solution-upgrade',
+          '/solution-more',
+        ]
+      },
+      
+      {
+        title: 'Administrator',
+        collapsable: false,
+        children: [
+          '/admin-services',
+          '/admin-mysql',
+          ['https://support.websoft9.com/docs/linux/webs-nginx.html','Nginx'],
+          ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
+        ]
+      },
+      
+      {
+        title: 'Other',
+        collapsable: false,
+        children: [
+          '/else-faq',
+          '/else-troubleshooting',
+        ]
+      },
+      
     ]

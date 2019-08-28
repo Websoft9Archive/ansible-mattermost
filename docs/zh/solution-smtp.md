@@ -1,6 +1,6 @@
 # SMTP
 
-大量实践反馈，使用**第三方 SMTP 服务发送邮件**是一种最稳定可靠的方式。  
+大量用户实践反馈，使用**第三方 SMTP 服务发送邮件**是一种最稳定可靠的方式。  
 
 请勿尝试在服务器上安装sendmail等发邮件方案，因为邮件系统的路由配置受制与域名、防火墙、路由等多种因素制约，导致不稳定、不容易维护、不好诊断问题。
 
@@ -15,8 +15,9 @@
    SMTP username: websoft9@163.com
    SMTP password: #wwBJ8    //此密码不是邮箱密码，是需要通过163邮箱后台设置去获取的授权码
    ```
-2. 登录 Mattermost，进入 SMTP 界面
+2. 登录 Mattermost控制台，打开【ENVIROMENT】>【SMTP】
+   ![设置smtp](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-smtp-websoft9.png)
 3. 填写 SMTP 参数
-4. 发送测试邮件
+4. 点击【Test Connection】
 
 更多邮箱设置（QQ邮箱，阿里云邮箱，Gmail，Hotmail等）以及无法发送邮件等故障之诊断，请参考由Websoft9提供的 [SMTP 专题指南](https://support.websoft9.com/docs/faq/zh/tech-smtp.html)

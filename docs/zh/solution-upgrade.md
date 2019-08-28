@@ -23,3 +23,5 @@ yum update -y
 
 
 ## Mattermost升级
+
+参考[官方升级文档](https://docs.mattermost.com/administration/upgrade.html)
