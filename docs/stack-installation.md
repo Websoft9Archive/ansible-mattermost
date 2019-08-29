@@ -1,4 +1,4 @@
-# 初始化安装
+# Initial Installation
 
 在云服务器上部署 Mattermost 预装包之后，请参考下面的步骤快速入门。
 

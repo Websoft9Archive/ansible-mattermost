@@ -1,27 +1,29 @@
 # Username and Password
 
-使用Mattermost，可能会用到的几组账号密码如下：
+These accounts are required for Mattermost image installation and configuration
 
 ## Mattermost
 
-在初始化安装的时候由用户自行设置
+Administrator account is set by yourselft at the time of Mattermost installation wizard
 
 ## MySQL
 
-* 管理员账号：*`root`*
-* 管理员密码：存储在您的服务器指定文件中：*/credentials/password.txt*。建议通过云控制台直接连接服务器，进入命令终端，运行`cat /credentials/password.txt` 命令获取数据库密码：
-   ![运行cat命令](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
+* Administrator username: *`root`*
+* Administrator password: stored in the file of your server instance: */credentials/password.txt*. You use the **online SSH interface on Cloud Console** and run the command `cat /credentials/password.txt` to get the database password
+   ![Run the cat command](https://libs.websoft9.com/Websoft9/DocsPicture/zh/common/catdbpassword-websoft9.png)
 
-> 需要登录MySQL，请参考 [MySQL可视化管理](/zh/admin-mysql.md)
+> If you want to log in MySQL, refer to [MySQL Web interface Management](/admin-mysql.md)
 
 ## Linux
 
-* 主机地址：服务公网IP地址
-* 连接方式：云控制台在线SSH 或 SFTP客户端工具 或 SSH客户端工具
-* 管理员密码：创建服务器的时候自行设置，若不记得密码需要通过云控制台重置。
-* 管理员账号：不同的云平台有一定的差异
-   |  云平台   |  管理员账号   |
+* Host Name: Internet IP or Public IP of your Instance
+* Connect by: Online SSH on Cloud Console or SFTP/SSH tools on your local computer
+* Password: It was set by yourself when created instance
+* Username: Different Cloud Platform has differences
+   |  Cloud Platform   |  Administrator Username   |
    | --- | --- |
-   |  Azure   |  创建服务器的时候自行设置   |
+   |  Azure   |  It was set by yourself when created instance   |
    |  AWS   |  ubuntu   |
-   |  阿里云，华为云，腾讯云   |  root   |
+   |  Alibaba Cloud, HUAWEI CLOUD, Tencent Cloud |  root   |
+
+If don't remember the password of Linux, you should reset password on Cloud Console
