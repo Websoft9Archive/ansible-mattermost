@@ -1,32 +1,32 @@
 # Initial Installation
 
-在云服务器上部署 Mattermost 预装包之后，请参考下面的步骤快速入门。
+If you have completed the Mattermost deployment on Cloud Platform, the following steps is for you to start use it quikly
 
-## 准备
+## Preparation
 
-1. 在云控制台获取您的 **服务器公网IP地址** 
-2. 在云控制台安全组中，检查 **Inbound（入）规则** 下的 **TCP:80** 端口是否开启
-3. 若想用域名访问 Mattermost，请先到 **域名控制台** 完成一个域名解析
+1. Get the **Internet IP** on your Cloud Platform
+2. Check you **[Inbound of Security Group Rule](https://support.websoft9.com/docs/faq/tech-instance.html)** of Cloud Console to ensure the TCP:80 is allowed
+3. Make a domain resolution on your DNS Console if you want to use domain for Mattermost
 
-## Mattermost 安装向导
+## Mattermost Installation Wizard
 
-1. 本地电脑的 Chrome 或 Firefox 浏览器访问网址：`http://域名` 或 `http://服务器公网IP`, 进入引导页面
+1. Using local Chrome or Firefox to visit the URL *http://domain name* or *http://Internet IP*, you will enter the register interface of Mattermost
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-install-websoft9.png)
-2. 设置后台管理员账号和密码，开始创建账号
+2. Set the username and password, start to create administrator account of Mattermost
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-createdaccount-websoft9.png)
-3. 开始创建团队 或 登录到系统控制台
-5. 打开：【SITE CONFIGURATION】>【Localization】设置你所需的语言
+3. Create a new team or Go to system console
+5. Open 【SITE CONFIGURATION】>【Localization】 to set your language
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-language-websoft9.png)
-5. 退出并重新登录，所选语言生效
+5. Quit and reload Mattermost, you can see your language is in effect
 
-> 需要了解更多 Mattermost 的使用，请参考官方文档：[Matterbase Administrator’s Guide](https://docs.mattermost.com/guides/administrator.html)
+> More useful Mattermost guide, please refer to [Matterbase Administrator’s Guide](https://docs.mattermost.com/guides/administrator.html)
 
-## 常见问题
+## Q&A
 
-#### 浏览器打开IP地址，无法访问 Mattermost（白屏没有结果）？
+#### I can't visit the start page of Mattermost?
 
-您的服务器对应的安全组80端口没有开启（入规则），导致浏览器无法访问到服务器的任何内容
+Your TCP:80 of Security Group Rules is not allowed so there no response from Chrome or Firefox
 
-#### 本部署包采用的哪个数据库来存储 Mattermost 数据？
+#### Which database does this Mattermost use?
 
-是MySQL
+MySQL

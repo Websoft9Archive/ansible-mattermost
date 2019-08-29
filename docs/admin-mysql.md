@@ -1,12 +1,12 @@
 # MySQL
 
-Mattermost 预装包中内置 MySQL 及可视化数据库管理工具 `phpMyadmin` ，使用请参考如下步骤：
+Mattermost deployment package includes MySQL and Web-GUI tool phpMyAdmin for MySQL management, refer to these steps to use it:
 
-1. 登录云控制台，开启服务器安全组9090端口
-2. 本地浏览器 Chrome 或 Firefox 访问：*http://服务器公网IP:9090*，进入phpMyAdmin
-  ![登录phpMyadmin](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/phpmyadmin-logincn-websoft9.png)
-3. 输入数据库用户名和密码([不知道密码？](/zh/stack-accounts.md))
-4. 开始管理数据库
+1. Log in Cloud Console, make sure the **TCP:9090** port is allowed on **Inbound of Security Group Rule**
+2. Using the Chrome or FireFox to visit URL *http://Internet IP:9090*
+  ![log in phpMyadmin](https://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/phpmyadmin-logincn-websoft9.png)
+3. Enter username and password of MySQL([Don't known password?](/stack-accounts.md))
+4. Start to manage MySQL now
   ![phpMyadmin](http://libs.websoft9.com/Websoft9/DocsPicture/zh/mysql/phpmyadmin-adddb-websoft9.png)
 
-> 阅读Websoft9提供的 [《MySQL教程》](https://support.websoft9.com/docs/mysql/zh/admin-phpmyadmin.html) ，掌握更多的MySQL实用技能：修改密码、导入/导出数据、创建用户、开启或关闭远程访问、日志配置等
+> Websoft9 provide *[MySQL guide](https://support.websoft9.com/docs/mysql/admin-phpmyadmin.html)* for more useful skills of MySQL, includes: modify password, create user, import/export data, enable or disable remote visit, log configuation and so on.
