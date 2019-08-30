@@ -18,9 +18,10 @@ Mattermost 域名绑定操作步骤：
       server_name    mattermost.example.com; # 改为自定义域名
    ...
    ```
-3. 登录Mattermost控制台，打开：【ENVIRONMENT】>【Web Server】，修改 【Site URL】值
+3. 保存配置文件，重启[Nginx服务](/zh/admin-services.md#nginx)
+4. 登录Mattermost控制台，打开：【ENVIRONMENT】>【Web Server】，修改 【Site URL】值
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-urlset-websoft9.png)
-4. 重启[Nginx服务](/zh/admin-services.md#nginx)
+
 
 ## 迁移
 

@@ -15,9 +15,9 @@ Follow is the sample using **SendGrid's SMTP Service** to configure sending mail
    SMTP username: websoft9smpt
    SMTP password: #fdfwwBJ8f    
    ```
-2. Log in Mattermost Console, open 【ENVIROMENT】>【SMTP】
+2. Log in Mattermost Console, open **ENVIROMENT** > **SMTP**
    ![Set smtp](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-smtpsendgrid-websoft9.png)
 3. Enter the SMTP settings
-4. Click the【Test Connection】, you can get the feedback *"no errors were..."* if SMTP is useful
+4. Click the **Test Connection**, you can get the feedback *"no errors were..."* if SMTP is useful
 
 More SMTP Service(Gmail, Hotmail, QQ mail, Yahoo mail, SendGrid and so on)  settings or Issues with SMTP, please refer to Websoft9's *[SMTP Guide](https://support.websoft9.com/docs/faq/tech-smtp.html)*

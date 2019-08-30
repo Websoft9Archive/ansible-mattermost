@@ -1,27 +1,28 @@
 # More
 
-下面每一个方案，都经过实践证明行之有效，希望能够对你有帮助
+Each of the following solutions has been proven to be effective and We hope to be helpful to you.
 
-## 域名绑定
+## Domain binding
 
-绑定域名的前置条件是：Mattermost已经可以通过解析后的域名访问。  
+The precondition for binding a domain is that Mattermost can accessed by domain name.
 
-虽然如此，从服务器安全和后续维护考量，**域名绑定**步骤不可省却  
+Nonetheless, from the perspective of server security and subsequent maintenance considerations, the **Domain Binding** step cannot be omitted.
 
-Mattermost 域名绑定操作步骤：
+Mattermost domain name binding steps:
 
-1. 登录云服务器
-2. 修改 [Nginx虚拟机主机配置文件](/zh/stack-components.md#nginx)，将其中的域名项的值 *mattermost.example.com* 修改为你的域名
-```text
-server {
-   listen 80;
-   server_name    mattermost.example.com; # 改为自定义域名
-...
-```
-3. 登录Mattermost控制台，打开：【ENVIRONMENT】>【Web Server】，修改 【Site URL】值
+1. Connect your Cloud Server
+2. Modify [Nginx vhost configuration file](/stack-components.md#nginx), change the **server_name**'s value *mattermost.example.com* to your domain name
+   ```text
+   server {
+      listen 80;
+      server_name    mattermost.example.com; # Change to a your domain name
+   ...
+   ```
+3. Save it and restart [Nginx Service](/admin-services.md#nginx)
+4. Log in Mattermost console, open: **ENVIRONMENT** > **Web Server**, modify **Site URL** value
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-urlset-websoft9.png)
-4. 重启[Nginx服务](/zh/admin-services.md#nginx)
 
-## 迁移
 
-暂无
+## Other
+
+Coming soon
