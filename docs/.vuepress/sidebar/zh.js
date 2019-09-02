@@ -13,7 +13,7 @@ module.exports = [
   },
   
   {
-    title: '最佳实践',
+    title: '实践指南',
     collapsable: false,
     children: [
       '/zh/solution-smtp',
@@ -25,7 +25,7 @@ module.exports = [
   },
   
   {
-    title: '管理指南',
+    title: '配置参考',
     collapsable: false,
     children: [
       '/zh/admin-services',
