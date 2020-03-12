@@ -1,4 +1,2 @@
-mattermost_ver: 5.14.0
-mattermost_db_name: mattermost
-mattermost_db_user: mmuser
-mattermost_db_password: websoft9
+# 下载链接，定期维护
+mattermost_download_url: https://releases.mattermost.com/5.14.0/mattermost-team-5.14.0-linux-amd64.tar.gz

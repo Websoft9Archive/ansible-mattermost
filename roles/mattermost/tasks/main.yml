@@ -1,21 +1,3 @@
-- name: Get MySQL root Default Password
-  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
-  register: mysql_password 
-
-- name: Create mattermost database
-  mysql_db:
-    login_password: "{{mysql_password.stdout}}"
-    login_user: root
-    name: "{{mattermost_db_name}}"
-
-- name: Create mattermost database User
-  mysql_user:
-      name: "{{mattermost_db_user}}" 
-      login_password: "{{mysql_password.stdout}}"
-      login_user: root 
-      password: "{{mattermost_db_password}}" 
-      priv: '{{mattermost_db_name}}.*:ALL'
-
 - name: Create Mattermost System User
   user:
       name: mattermost 
@@ -25,7 +7,7 @@
 
 - name: Download Mattermost
   unarchive:
-      src: https://releases.mattermost.com/{{mattermost_ver}}/mattermost-team-{{mattermost_ver}}-linux-amd64.tar.gz
+      src: "{{mattermost_download_url}}"
       dest: /opt/ 
       group: mattermost 
       remote_src: yes
@@ -63,29 +45,3 @@
 
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
-
-- name: Write Databases Password
-  template:
-    src: password.txt.jinja2
-    dest: /credentials/password.txt
-    mode: 644
-
-- name: Write rc.local
-  shell: echo "#!/bin/bash" > /etc/rc.local
-
-- name: restart rc.local
-  service: name=rc.local state=restarted enabled=yes
-
-
-- name: Databases Random Password
-  template: 
-    src: init.sh.jinja2
-    dest: /root/init.sh
-    mode: 0750
-
-- name: Setting Startup
-  lineinfile:
-    path: /etc/rc.local
-    regexp: '/root/init.sh'
-    line: '/root/init.sh'
-    mode: 0750

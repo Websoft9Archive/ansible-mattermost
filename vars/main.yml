@@ -1,0 +1,32 @@
+#全局
+region: "0"
+
+# MySQL 版本和默认密码
+mysql_version: "5.7"       
+mysql_root_password: "123456"
+
+# 生成应用数据库和用户
+mysql_databases:
+ - name: mattermost
+   encoding: utf8
+ 
+mysql_users:
+ - name: mattermost
+   host: localhost
+   priv: 'mattermost.*:ALL'
+
+# 初始化MySQL root密码
+init_db: 
+    mysql:
+      user: root
+      password: "123456"  
+  
+# 应用数据库信息
+init_application:
+  mattermost:
+    service: php-fpm
+    database: mattermost 
+    database_user: mattermost
+    database_host: localhost
+    database_password: "123456"
+    
