@@ -1,0 +1,33 @@
+---
+- name: Clean 
+  docker_container:
+    name: portainer
+    state: absent
+
+- name: Create /data directory
+  file:
+    path: /data
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: pull portainer image
+  docker_image:
+    name: portainer/portainer
+
+- name: Create a volume
+  docker_volume:
+    name: portainer_data
+
+- name: start portainer
+  docker_container:
+    name: portainer
+    image: portainer/portainer
+    state: started
+    restart_policy: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data

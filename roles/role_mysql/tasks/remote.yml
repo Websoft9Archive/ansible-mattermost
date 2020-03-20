@@ -1,0 +1,38 @@
+- block:
+  - name: Change MySQL Server Bind Address
+    lineinfile:
+      path: /etc/mysql/mysql.conf.d/mysqld.cnf
+      regexp: 'bind-address'
+      state: absent
+
+  - name: Restarted MySQL 
+    service:
+      name: mysql
+      state: restarted
+      enabled: yes
+
+  when: ansible_os_family == 'Debian'
+
+
+- name: Create Remote User
+  mysql_user: 
+    login_user: root 
+    login_password: "{{mysql_root_password}}"
+    name: root
+    host: '%'
+    password: "{{mysql_root_password}}"
+    priv: '*.*:ALL,GRANT'
+
+- name: Drop localhost User
+  mysql_user:
+    login_user: root 
+    login_password: "{{mysql_root_password}}"
+    login_host: localhost
+    name: root
+    host: '{{item}}'
+    state: absent
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+  ignore_errors: yes

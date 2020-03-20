@@ -1,0 +1,30 @@
+- name: System Upgrade
+  yum: name=* state=latest
+
+- name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
+  yum: 
+    name: epel-release
+  when: ansible_distribution != 'Amazon'
+
+- name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
+  shell: amazon-linux-extras install epel -y
+  when: ansible_distribution == 'Amazon'
+
+
+- name: Install Common Software
+  yum: 
+    name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
+  
+- name: Disable SELinux temporarily
+  shell: sudo setenforce 0
+  when: ansible_selinux.status != 'disabled'
+
+- name: Disable SELinux ermanently
+  selinux:
+    state: disabled
+  when: ansible_selinux.status != 'disabled'
+  
+- name: Install PiP
+  yum:
+    name: python-pip
+  when: ansible_python.version.major == 2

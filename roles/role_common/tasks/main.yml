@@ -1,0 +1,35 @@
+- debug:
+    msg: Will install components on {{ ansible_distribution }} 
+
+- include: "{{ansible_os_family}}.yml"
+
+
+# Python模块处理
+- name: pip upgrade
+  shell: python{{ansible_python.version.major}} -m pip install -U pip
+  
+- name: Install pip requirements module
+  pip:
+    name: [pexpect,PyMySQL]
+    extra_args: "-U" 
+
+# 系统设置
+- name: Set swapiness
+  sysctl:
+    name: vm.swappiness
+    value: "10"
+
+- name: Fix No space left on device
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: "8192000"
+
+# 准备基本目录
+- name: Create Dir
+  file:
+    path: '/data/{{item}}'
+    state: directory
+  with_items:
+    - logs
+    - config
+    - cert

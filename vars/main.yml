@@ -5,6 +5,8 @@ region: "0"
 mysql_version: "5.7"       
 mysql_root_password: "123456"
 
+docker_applications: 'phpmyadmin'
+
 # 生成应用数据库和用户
 mysql_databases:
  - name: mattermost
@@ -29,4 +31,6 @@ init_application:
     database_user: mattermost
     database_host: localhost
     database_password: "123456"
+    config_path:
+      - /opt/mattermost/config/config.json
     

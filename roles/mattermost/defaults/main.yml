@@ -1,2 +1,9 @@
 # 下载链接，定期维护
-mattermost_download_url: https://releases.mattermost.com/5.14.0/mattermost-team-5.14.0-linux-amd64.tar.gz
+mattermost_download_url: "https://releases.mattermost.com/5.14.0/mattermost-team-5.14.0-linux-amd64.tar.gz"
+
+
+mattermost_db_user: "mattermost"
+
+mattermost_db_password: "123456"
+
+mattermost_db_name: "mattermost"
