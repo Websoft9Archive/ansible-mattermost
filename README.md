@@ -1,19 +1,3 @@
-# Mattermost自动化安装与部署
-
-## 版本
-
-由于Mattermost是通过下载源码安装，而源码下载的URL地址中是根据版本号来命名文件名称，因此设计一个`mattermost_ver`变量作为版本号来控制下载地址。此变量存在 `/roles/mattermost/main.yml`文件中。
-
-## 安装指南
-
-支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
-
-## 使用指南
-
-[中文](https://support.websoft9.com/docs/mattermost/zh) | [英文](https://support.websoft9.com/docs/mattermost)
-
-
-
 # mattermost 自动化安装与部署
 
 本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [mattermost](https://mattermost.com/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 mattermost，让原本复杂的安装过程变得没有任何技术门槛。  
