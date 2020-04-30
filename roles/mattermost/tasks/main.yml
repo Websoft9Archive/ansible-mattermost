@@ -57,7 +57,7 @@
 
 # display version and service state of components
 - name: Get mattermost version
-  shell: echo "Mattermost version: $(/opt/mattermost/bin/mmctl version)" 1>> /data/logs/install_version.txt
+  shell: echo "Mattermost version is $(/opt/mattermost/bin/mmctl version)" 1>> /data/logs/install_version.txt
 
 - name: Check mattermost Service
   shell: systemctl status mattermost | grep Active*
