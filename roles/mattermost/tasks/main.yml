@@ -1,3 +1,4 @@
+# Not need to install by os distribution because Mattermost is used Go language
 
 # install Mattermost
 - name: Create Mattermost System User
