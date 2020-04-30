@@ -1,17 +1,14 @@
 #全局
 region: "0"
 
-# metabase variable
+# mattermost variable
 
-metabase_db_name: metabase
-metabase_db_user: metabase
-metabase_db_password: "123456"
-
-# role_jdk
-jdk_version: "11" 
+mattermost_db_name: mattermost
+mattermost_db_user: mattermost
+mattermost_db_password: "123456"
 
 preend_certbot: True
-nginx_reverse_proxy_port: "3000"
+nginx_reverse_proxy_port: "8065"
 
 # role_mysql
 mysql_version: "5.7"       
@@ -23,13 +20,13 @@ docker_applications: 'phpmyadmin'
 
 # 生成应用数据库和用户
 mysql_databases:
- - name: metabase
+ - name: mattermost
    encoding: utf8
  
 mysql_users:
- - name: metabase
+ - name: mattermost
    host: localhost
-   priv: 'metabase.*:ALL'
+   priv: 'mattermost.*:ALL'
 
 # 初始化MySQL root密码
 init_db: 
@@ -39,11 +36,11 @@ init_db:
   
 # 应用数据库信息
 init_application:
-  metabase:
-    service: metabase
-    database: metabase 
-    database_user: metabase
+  mattermost:
+    service: mattermost
+    database: mattermost 
+    database_user: mattermost
     database_host: localhost
     database_password: "123456"
     config_path:
-      - /data/wwwroot/metabase/metabase.conf
+      - /data/wwwroot/mattermost/mattermost.conf
