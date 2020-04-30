@@ -1,3 +1,5 @@
+
+# install Mattermost
 - name: Create Mattermost System User
   user:
       name: mattermost 
@@ -45,3 +47,19 @@
 
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
+
+# set soft link, -b over
+# ln -sb src des
+- name: set soft link
+  shell: |
+    ln -sb /opt/mattermost  /data/wwwroot/mattermost
+    ln -sb /opt/mattermost/config /data/config/mattermost
+
+# display version and service state of components
+- name: Get mattermost version
+  shell: echo "Mattermost version: $(/opt/mattermost/bin/mmctl version)" 1>> /data/logs/install_version.txt
+
+- name: Check mattermost Service
+  shell: systemctl status mattermost | grep Active*
+  register: check_mattermost_service
+  notify: check_mattermost_service
