@@ -1,21 +1,35 @@
 #全局
 region: "0"
 
-# MySQL 版本和默认密码
+# metabase variable
+
+metabase_db_name: metabase
+metabase_db_user: metabase
+metabase_db_password: "123456"
+
+# role_jdk
+jdk_version: "11" 
+
+preend_certbot: True
+nginx_reverse_proxy_port: "3000"
+
+# role_mysql
 mysql_version: "5.7"       
 mysql_root_password: "123456"
+mysql_remote: True
 
+# docker
 docker_applications: 'phpmyadmin'
 
 # 生成应用数据库和用户
 mysql_databases:
- - name: mattermost
+ - name: metabase
    encoding: utf8
  
 mysql_users:
- - name: mattermost
+ - name: metabase
    host: localhost
-   priv: 'mattermost.*:ALL'
+   priv: 'metabase.*:ALL'
 
 # 初始化MySQL root密码
 init_db: 
@@ -25,12 +39,11 @@ init_db:
   
 # 应用数据库信息
 init_application:
-  mattermost:
-    service: php-fpm
-    database: mattermost 
-    database_user: mattermost
+  metabase:
+    service: metabase
+    database: metabase 
+    database_user: metabase
     database_host: localhost
     database_password: "123456"
     config_path:
-      - /opt/mattermost/config/config.json
-    
+      - /data/wwwroot/metabase/metabase.conf
