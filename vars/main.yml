@@ -43,4 +43,4 @@ init_application:
     database_host: localhost
     database_password: "123456"
     config_path:
-      - /data/wwwroot/mattermost/mattermost.conf
+      - /opt/mattermost/config/config.json
