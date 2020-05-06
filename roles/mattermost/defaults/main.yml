@@ -1,5 +1,5 @@
 # 下载链接，定期维护
-mattermost_download_url: "https://releases.mattermost.com/5.22.1/mattermost-5.22.1-linux-amd64.tar.gz"
+mattermost_download_url: "https://releases.mattermost.com/5.22.2/mattermost-5.22.2-linux-amd64.tar.gz"
 
 mattermost_db_user: "mattermost"
 mattermost_db_password: "123456"
