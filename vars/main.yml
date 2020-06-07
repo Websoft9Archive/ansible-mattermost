@@ -29,14 +29,6 @@ init_db:
       admin: root
       users: ["mattermost"]
       password: "123456"  
-  
-# init mattermost
-init_application:
-  mattermost:
-    service: mattermost
-    database: mattermost 
-    database_user: mattermost
-    database_host: localhost
-    database_password: "123456"
-    config_path:
-      - /opt/mattermost/config/config.json
+      service_before: mattermost.service
+      config_paths: 
+        - /opt/mattermost/config/config.json
