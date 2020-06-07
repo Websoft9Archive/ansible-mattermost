@@ -1,12 +1,6 @@
 #全局
 region: "0"
 
-# mattermost variable
-
-mattermost_db_name: mattermost
-mattermost_db_user: mattermost
-mattermost_db_password: "123456"
-
 preend_certbot: True
 nginx_reverse_proxy_port: "8065"
 
@@ -16,7 +10,8 @@ mysql_root_password: "123456"
 mysql_remote: True
 
 # docker
-docker_applications: 'phpmyadmin'
+docker_applications: 
+  - phpmyadmin
 
 # 生成应用数据库和用户
 mysql_databases:
@@ -28,13 +23,14 @@ mysql_users:
    host: localhost
    priv: 'mattermost.*:ALL'
 
-# 初始化MySQL root密码
+# init MySQL password
 init_db: 
     mysql:
-      user: root
+      admin: root
+      users: ["mattermost"]
       password: "123456"  
   
-# 应用数据库信息
+# init mattermost
 init_application:
   mattermost:
     service: mattermost
