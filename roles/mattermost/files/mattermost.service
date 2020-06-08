@@ -12,4 +12,4 @@ Group=mattermost
 LimitNOFILE=49152
 
 [Install]
-WantedBy=mysql.service
+WantedBy=multi-user.target
