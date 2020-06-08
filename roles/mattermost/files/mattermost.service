@@ -3,7 +3,7 @@ Description=Mattermost
 After=network.target
 
 [Service]
-Type=notify
+Type=simple
 ExecStart=/opt/mattermost/bin/mattermost
 Restart=always
 WorkingDirectory=/opt/mattermost
