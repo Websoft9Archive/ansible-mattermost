@@ -37,7 +37,7 @@
     src: mattermost.service
     dest: /lib/systemd/system/mattermost.service
 
-- name: Start Mattermost
+- name: Start service mattermost, if not started
   service:
     name: mattermost
     state: started
