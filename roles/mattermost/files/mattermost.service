@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/mattermost/bin/mattermost
+ExecStart=-/opt/mattermost/bin/mattermost
 Restart=always
 WorkingDirectory=/opt/mattermost
 User=mattermost
