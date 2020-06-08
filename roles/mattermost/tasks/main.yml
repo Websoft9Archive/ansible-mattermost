@@ -55,8 +55,8 @@
 # ln -sb src des
 - name: set soft link
   shell: |
-    ln -sb /opt/mattermost  /data/wwwroot/mattermost
-    ln -sb /opt/mattermost/config /data/config/mattermost
+    ln -sb /opt/mattermost  /data/wwwroot
+    ln -sb /opt/mattermost/config /data/config
 
 # display version and service state of components
 - name: Get mattermost version
