@@ -26,7 +26,7 @@
 本项目通过下载 Mattermost 源码进行安装，下载链接存储在：[/roles/mattermost/defaults/main.yml](/roles/mattermost/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
 
 ```
-mattermost_download_url: "https://releases.mattermost.com/5.22.2/mattermost-5.22.2-linux-amd64.tar.gz"
+mattermost_download_url: "https://releases.mattermost.com/5.23.1/mattermost-5.23.1-linux-amd64.tar.gz"
 ```
 如果你发现不是最新版本，请查看 [Mattermost 下载页面 ](https://mattermost.com/download/)获取最新版源码下载链接，再修改 [main.yml](/roles/mattermost/defaults/main.yml) 中的 `mattermost_download_url` 变量值即可安装最新版本的 Mattermost。
 
