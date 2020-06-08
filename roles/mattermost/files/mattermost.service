@@ -1,14 +1,14 @@
 [Unit]
 Description=Mattermost
-After=network.target
+After=syslog.target network.target mysqld.service
 
 [Service]
-Type=simple
-ExecStart=-/opt/mattermost/bin/mattermost
-Restart=always
+Type=notify
 WorkingDirectory=/opt/mattermost
 User=mattermost
-Group=mattermost
+ExecStart=/opt/mattermost/bin/mattermost
+PIDFile=/var/spool/mattermost/pid/master.pid
+TimeoutStartSec=3600
 LimitNOFILE=49152
 
 [Install]
