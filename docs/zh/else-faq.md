@@ -4,6 +4,10 @@
 
 参考官方文档 [Mattermost vs Slack](https://mattermost.com/mattermost-vs-slack/)
 
+#### Mattermost Server, Matttermost Team Edition 和 Matttermost Enterprise Edition 有什么区别？
+
+暂时还没有完全理解三者的关系
+
 #### Mattermost提供客户端吗？
 
 提供，[下载地址](https://mattermost.com/download/#mattermostApps)
