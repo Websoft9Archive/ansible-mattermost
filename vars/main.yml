@@ -1,7 +1,8 @@
 #全局
 region: "0"
+common_os_support: ["CentOS", "Ubuntu", "Amazon"]
 
-preend_certbot: True
+nginx_certbot: True
 nginx_reverse_proxy_port: "8065"
 
 # role_mysql
@@ -16,7 +17,6 @@ docker_applications:
 # 生成应用数据库和用户
 mysql_databases:
  - name: mattermost
-   encoding: utf8
  
 mysql_users:
  - name: mattermost
