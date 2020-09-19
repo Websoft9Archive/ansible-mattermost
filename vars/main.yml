@@ -3,6 +3,8 @@ region: "0"
 common_os_support: ["CentOS", "Ubuntu", "Amazon"]
 
 nginx_certbot: True
+nginx_appname: "mattermost"
+nginx_vhost_mode: "reverse"
 nginx_reverse_proxy_port: "8065"
 
 # role_mysql
@@ -20,7 +22,6 @@ mysql_databases:
  
 mysql_users:
  - name: mattermost
-   host: localhost
    priv: 'mattermost.*:ALL'
 
 # init MySQL password
