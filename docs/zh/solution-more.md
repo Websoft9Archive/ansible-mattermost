@@ -28,7 +28,7 @@ Mattermost 域名绑定操作步骤：
 
 ## CLI
 
-Mattermost 提供了 `mattermost` 和 `mmctl` 两种命令，目前并没有看出有什么差异。
+Mattermost 提供了 `mattermost` 和 `mmctl` 两种命令，[mattermost](https://docs.mattermost.com/administration/command-line-tools.html)是服务器端命令，[mmctl](https://docs.mattermost.com/administration/mmctl-cli-tool.html)基于API的客户端命令
  
 ```
 /opt/mattermost/bin/mattermost -h
