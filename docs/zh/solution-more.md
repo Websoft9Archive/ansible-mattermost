@@ -26,6 +26,17 @@ Mattermost 域名绑定操作步骤：
 
 例如，jitmi被用户大量使用
 
+## CLI
+
+Mattermost 提供了 `mattermost` 和 `mmctl` 两种命令，目前并没有看出有什么差异。
+ 
+```
+/opt/mattermost/bin/mattermost -h
+/opt/mattermost/bin/mmctl -h
+```
+
+如果运行 /opt/mattermost/bin/mmctl version 查询出的版本稍微低一点
+
 ## 迁移
 
 暂无
