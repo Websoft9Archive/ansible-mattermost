@@ -10,6 +10,8 @@ Mattermost Server 是它的产品的服务器端（后端）
 Mattermost Team Edition 是它的开源版本    
 Matttermost Enterprise Edition 是它的企业版本  
 
+目前官方提供了一致性的软件包下载，安装后默认就是 Enterprise Edition 的程序，但用户界面只有开源版的功能，如果需要企业版的功能，需要通过导入企业版秘钥实现升级。
+
 #### Mattermost提供客户端吗？
 
 提供，[下载地址](https://mattermost.com/download/#mattermostApps)
