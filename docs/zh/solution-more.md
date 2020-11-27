@@ -22,6 +22,9 @@ Mattermost 域名绑定操作步骤：
 4. 登录Mattermost控制台，打开：【ENVIRONMENT】>【Web Server】，修改 【Site URL】值
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-urlset-websoft9.png)
 
+## 插件
+
+例如，jitmi被用户大量使用
 
 ## 迁移
 
