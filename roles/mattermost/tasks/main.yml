@@ -25,11 +25,18 @@
       group: mattermost
       mode: g+w
       
-- name: Set database connection /opt/mattermost/config/config.json
+- name: Set database connection 
   lineinfile:
     dest: /opt/mattermost/config/config.json
     regexp: '"DataSource":'
     line: '    "DataSource": "{{mattermost_db_user}}:{{mattermost_db_password}}@tcp(localhost:3306)/{{mattermost_db_name}}?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",'
+    backrefs: yes 
+
+- name: Set database connection type 
+  lineinfile:
+    dest: /opt/mattermost/config/config.json
+    regexp: '"DriverName":'
+    line: '    "DriverName": "mysql",'
     backrefs: yes 
 
 - name: Setup Mattermost to use systemd for starting and stopping.
