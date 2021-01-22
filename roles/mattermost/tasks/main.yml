@@ -25,7 +25,7 @@
       group: mattermost
       mode: g+w
       
-- name: Set database connection 
+- name: Set database connection DataSource
   lineinfile:
     dest: /opt/mattermost/config/config.json
     regexp: '"DataSource":'
