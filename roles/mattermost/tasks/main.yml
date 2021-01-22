@@ -25,12 +25,15 @@
       group: mattermost
       mode: g+w
       
-- name: Set database connection /opt/mattermost/config/config.json
+- name: Set database connection DataSource
   lineinfile:
     dest: /opt/mattermost/config/config.json
     regexp: '"DataSource":'
     line: '    "DataSource": "{{mattermost_db_user}}:{{mattermost_db_password}}@tcp(localhost:3306)/{{mattermost_db_name}}?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",'
     backrefs: yes 
+
+- name: Change database connection type
+  shell: sed -i 's/postgres/mysql/g' /opt/mattermost/config/config.json
 
 - name: Setup Mattermost to use systemd for starting and stopping.
   copy:
