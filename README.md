@@ -15,6 +15,8 @@
 | 私有云|  KVM, VMware, VirtualBox, OpenStack | 可选  |
 | 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
 
+更多配置要求请参照[官方文档](https://docs.mattermost.com/install/requirements.html)
+
 ## 组件
 
 包含的核心组件为：Mattermost + Nginx + MySQL + Docker + phpMyAdmin on Docker
