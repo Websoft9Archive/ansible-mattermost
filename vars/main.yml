@@ -16,7 +16,15 @@ mysql_remote: True
 docker_applications: 
   - phpmyadmin
 
-# 生成应用数据库和用户
+# add extra configurations for MySQL5.7.7+
+mysql_configuration_extras:
+  - name: ngram_token_size
+    value: 2
+  - name: ft_min_word_len
+    value: 2
+  - name: innodb_ft_min_token_size
+    value: 2
+
 mysql_databases:
  - name: mattermost
  
