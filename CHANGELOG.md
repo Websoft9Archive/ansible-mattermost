@@ -1,16 +1,13 @@
 # CHANGELOG
 
-## To do
+# CHANGELOG
 
-1. 优化 MySQL 配置文件
-2. 优化 Mattermost 配置文件
+## Release mattermost-v5.31.0  2021-1-22
+### Fixes and Enhancements
+- MySQL 5.7.6+ and the configuration of ngram Full-Text parser #2
+- Upgraded from 5.26.0 to 5.29.1 #1
 
-## Logs
-
-### Bug Fixes
-
-### Features
-
-* 2020-04-30  优化版本信息输出
-* 2020-04-30  改写项目，多操作系统支持
+## Release mattermost-v5.34.0  2021-5-31
+### Fixes and Enhancements
+- update to 5.34 #3
 
