@@ -1,64 +1,75 @@
-# Mattermost 自动化安装与部署
+# Mattermost Cloud Installer
 
-本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [Mattermost](https://mattermost.com/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Mattermost，让原本复杂的安装过程变得没有任何技术门槛。  
+![](https://libs.websoft9.com/common/websott9-cloud-installer.png) 
 
-本项目是开源项目，采用 LGPL3.0 开源协议。
+## Introduction
 
-## 配置要求
+[English](/README.md) | [简体中文](/README-zh.md)  
 
-安装本项目，确保符合如下的条件：
+**Mattermost Cloud Installer**, developed by [Websoft9](https://www.websoft9.com), is an automatic installation program of [Mattermost](https://mattermost.com/) based on Ansible and shell. It helps user install Mattermost and pre-configure required items automatically and users only need to run a command on Linux. It simplifies the complicated installation and initialization process.  
 
-| 条件       | 详情       | 备注  |
-| ------------ | ------------ | ----- |
-| 操作系统       | Ubuntu18.x, CentOS7.x, AmazonLinux2        | 可选   |
-| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 | 可选  |
-| 私有云|  KVM, VMware, VirtualBox, OpenStack | 可选  |
-| 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
+## System Requirement
 
-更多配置要求请参照[官方文档](https://docs.mattermost.com/install/requirements.html)
+System Requirement to install this repository are as following：
 
-## 组件
+| Conditions       | Details                               | Notes                |
+| ------------------- | --------------------------------| -------------------- |
+| Operating System   | CentOS7.x, Ubuntu20.04, Amazon Linux2 | Optional                 |
+| Public Cloud     | AWS, Azure, Alibaba Cloud, HUAWEI ClOUD, Tencent Cloud    | Optional                 |
+| Private Cloud     | KVM, VMware, VirtualBox, OpenStack    | Optional                 |
+| Server Configuration | vCPU no less than 1 core, Memory no less than 1 GIB, Storage no less than 20 GB, Swap no less than 2GB |Bandwidth no less than 100M|
 
-包含的核心组件为：Mattermost + Nginx + MySQL + Docker + phpMyAdmin on Docker
+To learn more information, please view [Installation & Configuration](https://docs.mattermost.com/install/requirements.html).
 
-更多请见[参数表](/docs/zh/stack-components.md)
+## Ecosystem
 
-## 本项目安装的是 Mattermost 最新版吗？
+Core components of this repository: Mattermost, Go, Nginx, MySQL, phpMyAdmin on Docker, Docker
 
-本项目通过下载 Mattermost 源码进行安装，下载链接存储在：[/roles/mattermost/defaults/main.yml](/roles/mattermost/defaults/main.yml)。我们会定期检查并测试官方版本的可用性，尽可能保证用户可以顺利安装最新版。
+Learn more about [Parameters](/docs/stack-components.md).
+
+## Installation
+
+You can install it by thi Cloud Installer solution all in one. In addition, you can deploy image published on major Cloud Platform by Websoft9.
+
+#### All-in-one Installer
+
+Run the automatic installation script with **root** authority to start the installation. If necessary, users need to make interactive choices, and then wait patiently until the installation is successful.
 
 ```
-mattermost_download_url: "https://releases.mattermost.com/5.23.1/mattermost-5.23.1-linux-amd64.tar.gz"
-```
-如果你发现不是最新版本，请查看 [Mattermost 下载页面 ](https://mattermost.com/download/)获取最新版源码下载链接，再修改 [main.yml](/roles/mattermost/defaults/main.yml) 中的 `mattermost_download_url` 变量值即可安装最新版本的 Mattermost。
-
-## 安装指南
-
-以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
-
-```
-wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/main/scripts/install.sh; bash install.sh -r mattermost
+$ sudo su -
+$ wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/main/scripts/install.sh; bash install.sh -r mattermost
 ```
 
-脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
+If the network is broken or blocked, SSH will be interrupted and the installation will fail. Please reinstall.
 
-**安装中的注意事项：**  
+#### Image on Cloud 
 
-1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
-2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
+Follow our [Mattermost image](https://apps.websoft9.com/mattermost) for installation on major Cloud Platform.
 
-多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Mattermost 镜像](https://apps.websoft9.com/mattermost) 的部署方式
+## Documentation
+
+**[Administrator Guide](https://support.websoft9.com/docs/mattermost)** 
 
 ## License
 
 [LGPL-3.0](/License.md), Additional Terms: It is not allowed to publish free or paid image based on this repository in any Cloud platform's Marketplace.
+
 Copyright (c) 2016-present, Websoft9
 
-## 文档
-
-文档链接：https://support.websoft9.com/docs/mattermost/zh
+This program provided by Websoft9 contains a series of software with separate copyright notices and license terms. Your use of the source code for the software included is subject to the terms and conditions of its own license.
 
 ## FAQ
 
-- 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
-- 本项目支持在 Ansible Tower 上运行吗？支持
+#### How to install and view the latest release?
+
+This repository install way is Isntallation for download binaries files , you can  view the version from [Official URL](https://docs.mattermost.com/install/self-managed-changelog.html).  
+We will check [Release version](https://github.com/Websoft9/ansible-mattermost/releases) regularly. Update and test this project to ensure that users can successfully install the required version of Mattermost.
+
+#### Can I run this repository on Ansible Tower? 
+
+Yes.
+
+#### Although the results of the deploy by image are consistent with the results of deploy by script, what is the difference between the two deployment methods?
+
+Suggest you read the document [Deploy by Image vs Deploy by Script](https://support.websoft9.com/docs/faq/bz-product.html#deployment-comparison).
+
