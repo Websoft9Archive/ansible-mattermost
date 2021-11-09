@@ -3,7 +3,7 @@
 # https://releases.mattermost.com/5.23.1/mattermost-5.23.1-linux-amd64.tar.gz
 # mattermost_download_url: "https://releases.mattermost.com/5.26.2/mattermost-5.26.2-linux-amd64.tar.gz"
 # mattermost_download_url: "https://releases.mattermost.com/5.34.2/mattermost-5.34.2-linux-amd64.tar.gz"
-mattermost_download_url: "https://releases.mattermost.com/5.36.1/mattermost-5.36.1-linux-amd64.tar.gz"
+mattermost_download_url: "https://releases.mattermost.com/6.0.2/mattermost-6.0.2-linux-amd64.tar.gz"
 
 mattermost_db_user: "mattermost"
 mattermost_db_password: "123456"
