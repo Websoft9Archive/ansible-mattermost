@@ -1,11 +1,8 @@
 # Mattermost Notes
 
-组件名称：Mattermost
-安装文档：https://docs.mattermost.com/install/install-rhel-7.html  
-配置文档：https://docs.mattermost.com/install/install-rhel-7.html
-支持平台： Debian家族 | RHEL家族 | Windows | Kubernetes |Docker| bitnami | digitalocean | macOS
-
-责任人：zxc
+组件名称：Mattermost  
+安装文档：https://docs.mattermost.com/install/install-rhel-7.html   
+下载地址：https://docs.mattermost.com/upgrade/version-archive.html#mattermost-team-edition  
 
 ## 概要
 
