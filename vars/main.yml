@@ -41,5 +41,5 @@ init_db:
       service_before: mattermost.service
       config_paths: 
         - /opt/mattermost/config/config.json
-      cmd:
+      commands:
         - sudo systemctl restart mattermost
