@@ -30,3 +30,8 @@
 #### 本部署包采用的哪个数据库来存储 Mattermost 数据？
 
 是MySQL
+
+#### 团队用户数受限？
+
+通过 System Console 控制台 【SITE CONFIGURATION】-【Users and Teams】 选项设置 【Max Users Per Team】值来设置团队人数
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-maxusers-websoft9.png)
