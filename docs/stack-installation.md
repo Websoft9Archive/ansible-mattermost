@@ -30,3 +30,8 @@ Your TCP:80 of Security Group Rules is not allowed so there no response from Chr
 #### Which database does this Mattermost use?
 
 MySQL
+
+#### The number of team users is limited?
+
+Set the number of team members through System Console [SITE CONFIGURATION]-[Users and Teams] option setting [Max Users Per Team] value
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-maxusers-websoft9.png)
