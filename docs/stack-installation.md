@@ -15,8 +15,8 @@ If you have completed the Mattermost deployment on Cloud Platform, the following
 2. Set the username and password, start to create administrator account of Mattermost
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-createdaccount-websoft9.png)
 3. Create a new team or Go to system console
-5. Open **SITE CONFIGURATION** > **Localization** to set your language
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-language-websoft9.png)
+4. Open **Settings** > **Display** to set your language
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-display-websoft9.png)
 5. Quit and reload Mattermost, you can see your language is in effect
 
 > More useful Mattermost guide, please refer to [Matterbase Administrator’s Guide](https://docs.mattermost.com/guides/administrator.html)
