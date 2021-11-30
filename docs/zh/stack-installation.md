@@ -15,8 +15,8 @@
 2. 设置后台管理员账号和密码，开始创建账号
    ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-createdaccount-websoft9.png)
 3. 开始创建团队 或 登录到系统控制台
-5. 打开：【SITE CONFIGURATION】>【Localization】设置你所需的语言
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-language-websoft9.png)
+4. 打开：【Settings】>【Display】设置你所需的语言
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/mattermost/mattermost-display-websoft9.png)
 5. 退出并重新登录，所选语言生效
 
 > 需要了解更多 Mattermost 的使用，请参考官方文档：[Matterbase Administrator’s Guide](https://docs.mattermost.com/guides/administrator.html)
