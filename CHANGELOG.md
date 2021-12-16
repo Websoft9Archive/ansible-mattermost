@@ -1,6 +1,8 @@
 # CHANGELOG
 
-# CHANGELOG
+## Release mattermost-v6.1.0  2021-11-22
+### Fixes and Enhancements
+- update to v6.1.0
 
 ## Release mattermost-v5.31.0  2021-1-22
 ### Fixes and Enhancements
